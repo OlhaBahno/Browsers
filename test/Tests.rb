@@ -1,6 +1,6 @@
 require 'selenium-webdriver'
 require 'rspec'
-require './LogWriter.rb'
+require './Writer.rb'
 require './Driver.rb'
 
 describe Driver do
