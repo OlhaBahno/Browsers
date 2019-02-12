@@ -1,13 +1,13 @@
 module Driver
   attr_accessor :driver
-
-  def start(url = 'C:/WebDrivers/chromedriver.exe', driver = 'Selenium::WebDriver.for :chrome')
-    if driver.include?'chrome'
-      Selenium::WebDriver::Chrome.driver_path = url
+  def launch(browser = 'Chrome')
+    if browser == 'Chrome'
+      Selenium::WebDriver::Chrome.driver_path = 'C:/WebDrivers/chromedriver.exe'
+      @driver = Selenium::WebDriver.for :chrome
     else
-      Selenium::WebDriver::Firefox.driver_path = url
+      Selenium::WebDriver::Firefox.driver_path = 'C:/WebDrivers/geckodriver.exe'
+      @driver = Selenium::WebDriver.for :firefox
     end
-    @driver = eval(driver)
   end
 
   def open_site

@@ -8,7 +8,7 @@ include Writer
 
 @hash = {}
 
-def launch(str)
+def start_time(str)
   time = Time.now
   open_site
   close_site
@@ -16,11 +16,11 @@ def launch(str)
   @hash[str] = Time.now - time
 end
 
-start('C:/WebDrivers/geckodriver.exe', 'Selenium::WebDriver.for :firefox')
 launch('Firefox')
+start_time('Firefox')
 
-start
 launch('Chrome')
+start_time('Chrome')
 
 write_to_excel(@hash)
 
