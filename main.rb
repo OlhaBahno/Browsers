@@ -22,7 +22,7 @@ launch('Firefox')
 start
 launch('Chrome')
 
-excel(@hash)
+write_to_excel(@hash)
 
 
 

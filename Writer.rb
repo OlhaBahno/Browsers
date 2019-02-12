@@ -5,7 +5,7 @@ module Writer
     File.open('log.txt', 'a') { |file| file.write result }
   end
 
-  def excel(hash_res)
+  def write_to_excel(hash_res)
     book = Spreadsheet::Workbook.new'C:\Users\obahn\RubymineProjects\browsers\new.xls'
     format = Spreadsheet::Format.new horizontal_align: :centre
     sheet = book.create_worksheet name: 'New worksheet'
