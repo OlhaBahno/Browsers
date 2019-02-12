@@ -1,2 +1,0 @@
-Time for Firefox: 2.6385121
-Time for Chrome: 0.9544914
