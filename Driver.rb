@@ -1,3 +1,4 @@
+require 'selenium-webdriver'
 module Driver
   attr_accessor :driver
   def launch(browser = 'Chrome')

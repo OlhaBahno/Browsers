@@ -1,28 +1,24 @@
-require 'selenium-webdriver'
+require './Writer_excel.rb'
+require './Work_hash.rb'
 require './Driver.rb'
-require './Writer.rb'
-require 'workbook'
 
+include Excel
+include WorkHash
 include Driver
-include Writer
 
 @hash = {}
 
-def start_time(str)
-  time = Time.now
-  open_site
-  close_site
-  write_to_log "Time for #{str}: #{Time.now - time}\n"
-  @hash[str] = Time.now - time
-end
-
 launch('Firefox')
-start_time('Firefox')
+@hash['Firefox'] = start_time('Firefox')
 
 launch('Chrome')
-start_time('Chrome')
+@hash['Chrome'] = start_time('Chrome')
 
-write_to_excel(@hash)
+createExcel
+titles
+fill_table(@hash, find_min(@hash), find_max(@hash))
+
+
 
 
 
