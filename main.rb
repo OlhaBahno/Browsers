@@ -6,6 +6,7 @@ include Excel
 include WorkHash
 include Driver
 
+=begin
 @hash = {}
 
 launch('Firefox')
@@ -17,8 +18,11 @@ launch('Chrome')
 create_excel
 titles
 fill_table(@hash, @hash.values.min, @hash.values.max)
+=end
 
-
+puts Dir.pwd
+create_excel
+titles
 
 
 

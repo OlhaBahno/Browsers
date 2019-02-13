@@ -3,7 +3,7 @@ require 'workbook'
 module Excel
   attr_accessor :book, :sheet, :format
   def create_excel
-    @book = Spreadsheet::Workbook.new'new.xls'
+    @book = Spreadsheet::Workbook.new"#{Dir.pwd}/new.xls"
     @sheet = book.create_worksheet name: 'Browsers'
     @format = Spreadsheet::Format.new size: 12,
                                       horizontal_align: :centre,
@@ -18,7 +18,7 @@ module Excel
                                      border: :thin
     write_value(1, 1, 'Name', format)
     write_value(1, 2, 'Time', format)
-    @book.write 'new.xls'
+    @book.write "#{Dir.pwd}/new.xls"
   end
 
   def write_value(row, col, value, form)
@@ -51,6 +51,6 @@ module Excel
       end
       row += 1
     end
-    @book.write 'new.xls'
+    @book.write "#{Dir.pwd}/new.xls"
   end
 end
