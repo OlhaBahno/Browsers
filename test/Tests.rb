@@ -1,7 +1,7 @@
 require 'selenium-webdriver'
 require 'rspec'
-require './Writer_log.rb'
-require './Driver.rb'
+require './writer_log.rb'
+require './driver.rb'
 
 describe Driver do
 

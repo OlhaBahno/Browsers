@@ -1,6 +1,6 @@
-require './Writer_excel.rb'
-require './Work_hash.rb'
-require './Driver.rb'
+require './writer_excel.rb'
+require './work_hash.rb'
+require './driver.rb'
 
 include Excel
 include WorkHash
@@ -14,9 +14,9 @@ launch('Firefox')
 launch('Chrome')
 @hash['Chrome'] = start_time('Chrome')
 
-createExcel
+create_excel
 titles
-fill_table(@hash, find_min(@hash), find_max(@hash))
+fill_table(@hash, @hash.values.min, @hash.values.max)
 
 
 

@@ -1,8 +1,9 @@
 require 'workbook'
+# create Excel book and work with it
 module Excel
   attr_accessor :book, :sheet, :format
-  def createExcel
-    @book = Spreadsheet::Workbook.new'C:\Users\obahn\RubymineProjects\browsers\new.xls'
+  def create_excel
+    @book = Spreadsheet::Workbook.new'new.xls'
     @sheet = book.create_worksheet name: 'Browsers'
     @format = Spreadsheet::Format.new size: 12,
                                       horizontal_align: :centre,
@@ -27,30 +28,29 @@ module Excel
 
 
   def fill_table(hash_res,min,max)
-    formatGreen = Spreadsheet::Format.new size: 12,
+    format_green = Spreadsheet::Format.new size: 12,
                                           horizontal_align: :centre,
                                           border: :thin,
                                           pattern_fg_color: :green,
                                           pattern: 1
-    formatRed = Spreadsheet::Format.new size: 12,
-                                   horizontal_align: :centre,
-                                   border: :thin,
-                                   pattern_fg_color: :red,
-                                   pattern: 1
+    format_red = Spreadsheet::Format.new size: 12,
+                                         horizontal_align: :centre,
+                                         border: :thin,
+                                         pattern_fg_color: :red,
+                                         pattern: 1
     row = 2
     hash_res.each do |k, v|
       write_value(row, 1, k, @format)
-      if v == min
-        write_value(row, 2, v, formatGreen)
-      elsif v == max
-        write_value(row, 2, v, formatRed)
+      case v
+      when min
+        write_value(row, 2, v, format_green)
+      when max
+        write_value(row, 2, v, format_red)
       else
         write_value(row, 2, v, @format)
       end
       row += 1
     end
-    # (0..sheet.rows.count - 1).each { |i| sheet.row(i).default_format = format }
     @book.write 'new.xls'
   end
-
 end

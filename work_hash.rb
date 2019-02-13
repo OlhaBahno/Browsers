@@ -1,6 +1,7 @@
-require './Driver.rb'
-require './Writer_log.rb'
+require './driver.rb'
+require './writer_log.rb'
 
+# working with hash
 module WorkHash
   include Driver
   include Writer
@@ -12,12 +13,11 @@ module WorkHash
     Time.now - time
   end
 
+=begin
   def find_min(hash_res)
     min = hash_res.values[0]
     hash_res.each do |k,v|
-      if v < min
-        min = v
-      end
+      min = v if v < min
     end
     min
   end
@@ -25,10 +25,9 @@ module WorkHash
   def find_max(hash_res)
     max = hash_res.values[0]
     hash_res.each do |k,v|
-      if v > max
-        max = v
-      end
+      max = v if v > max
     end
     max
   end
+=end
 end
